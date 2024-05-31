@@ -33,3 +33,10 @@
 # Postman:
 
     - Post is GUI for handling the request and response nased the http methods.
+    - sign the postman:
+
+       https://identity.getpostman.com/login
+
+
+    - install desktop version of postman:
+       https://www.postman.com/downloads/
