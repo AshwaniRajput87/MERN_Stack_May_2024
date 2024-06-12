@@ -66,7 +66,7 @@ app.use('/api/products', productRoutes);
 //             }
 
 //             res.cookie('token', data, {
-//                 maxAge: 30 * 60 * 60,
+//                 maxAge: 30 * 60 * 60 * 1000,
 //                 httpOnly: true
 //             });
 
@@ -123,23 +123,108 @@ const signupController = async(req, res, next) => {
 
 const loginController = async(req, res, next) => {
 
+    const { email, password} =   req.body;
+
+    const user = await UserModel.findOne({email});
+
+    console.log(user);
+
+    if(!user) {
+        res.status(404).json({
+            status:"failure",
+            message: "USer not found"
+        })
+    }
+
+    const isPwdSame = password === user.password;
+
+    console.log(isPwdSame);
+
+    try {
+
+        if(isPwdSame){
+
+            JWT.sign({id: user['_id']}, SECRET_KEY, {algorithm: 'HS512'}, (err, data) => {
+
+                if(err) {
+                    console.log(err);
+                    throw new Error(err);
+                }
+
+                res.cookie('token', data, {
+                    maxAge: 30 * 60 * 60 * 1000,
+                    httpOnly: true
+                });
+
+                res.json({
+                    status: "success",
+                    message: "You have successfully loggedin"
+                });
+            });
+        }
+        
+    } catch (error) {
+        next(error);   
+    }
+}
+
+const protectRouteMiddleware = (req, res, next) => {
+
+    try {
+
+        const { token } = req.cookies;
+
+        const decodedToken = JWT.verify(token, SECRET_KEY);
+
+        if(decodedToken) {
+            const userId = decodedToken.id;
+            req.userId = userId;
+            next();
+        }
+        
+    } catch (error) {
+        next(error);
+    }
 
 }
 
 const getUserProfileDetails = async(req, res, next) => {
 
+    const id = req.userId; 
+
+    const userDetails =  await UserModel.findById(id);
+
+    const { email, name } = userDetails;
+    res.status(200).json({
+        status: "success",
+        message: "User data fetched successfully",
+        user: {
+            name,
+            email
+        }
+    });
 }
 
 const logoutController = async(req, res, next) => {
-
-
-
+   res.clearCookie('token');
+   res.status(200).json({
+        status: "success",
+        message: "User has been successfully logout"
+   })
 }
 
 app.post('/api/auth/signup', signupController);
 app.use('/api/auth/login', loginController);
-app.use('/api/auth/userProfile', getUserProfileDetails);
+app.use('/api/auth/userProfile', protectRouteMiddleware, getUserProfileDetails);
+// app.get('/api/user/payment', protectRouteMiddleware, userTransactionDetails)
 app.use('/api/auth/logout', logoutController);
+
+
+// Assignment: Integrate the these end points with Emcommerce frontend project:
+// 1. create a signup form and integrate the signup API
+// 2. create login form and integrate the login API
+// 3. get the user details after integrating the getUserProfile API
+// 4. create a logout button and after clicking on that button integrate the logout API.
 
 
 
