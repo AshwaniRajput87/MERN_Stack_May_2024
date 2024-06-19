@@ -1,0 +1,33 @@
+{
+  "name": "src",
+  "version": "1.0.0",
+  "description": "Learning nodemon and express JS ",
+  "main": "app.js",
+  "author": "Scaler Team",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
+  },
+  "nodemonConfig": {
+    "watch": [
+      "src/"
+    ],
+    "ext": "js, json, html, css"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.1"
+  },
+  "dependencies": {
+    "@sendgrid/mail": "^8.1.3",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.7.0",
+    "mongoose": "^8.4.0",
+    "nodemailer": "^6.9.13"
+  }
+}
