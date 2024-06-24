@@ -24,7 +24,7 @@ function App() {
       console.log('Script has been loaded');
 
       const payload = {
-        amount: 100 // Set amount value here
+        amount: 2000 // Set amount value here
       };
 
       const orderResponse = await Axios.post('http://localhost:3000/checkout', payload);
@@ -44,7 +44,7 @@ function App() {
       "callback_url": "https://eneqd3r9zrjok.x.pipedream.net/",
       "prefill": { //We recommend using the prefill parameter to auto-fill customer's contact information especially their phone number
           "name": "Ashwani Kumar Rajput", //your customer's name
-          "email": "gaurav.kumar@example.com",
+          "email": "ashwin.rajput87@gmail.com",
           "contact": "9810214080" //Provide the customer's phone number for better conversion rates 
       },
       "notes": {
