@@ -11,9 +11,9 @@ import urlConfig from '../utils/urlConfig';
 import useAuth from '../context/auth/useAuth';
 const AppRoutes = () => {
 
-  const {data: categories, error, isLoading } = useFetchData('http://localhost:3000/api/products/categories', []);
+  const {data: categories, error, isLoading } = useFetchData('http://localhost:3000/api/product/categories', []);
 
-  console.log(categories);
+  console.log(categories.data);
 
   return (
       <>
@@ -21,7 +21,7 @@ const AppRoutes = () => {
       {/* <Loader /> */}
         <Router>
             {/* { user && user.length ? <Header categories={categories.data} isLoading={isLoading}/> : <></>}  */}
-            <Header categories={categories} isLoading={isLoading}/>
+            <Header categories={categories.data} isLoading={isLoading}/>
             <Routes>
                 <Route path='/' element={<ProductListing />} />
                 <Route path='/cart' element={<CartItems />} />
