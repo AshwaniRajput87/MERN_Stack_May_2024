@@ -1,25 +1,27 @@
 # Assignments:
-
-1. update the product model as the product data feed.
-2. insert the product data from product data feed into the mongodb via postman.
-
-
+1. update the product data as per data feed.
+2. insert the product data from product data feed and updte the model accordingly (whatever the names and type are going to use in product data feed).
 
 # What is CORS?
-  - CORS: Cross-Origin Sharing Resources
-  - It's a security feature implemented by the browsers to restrict the web pages from making a request to a different origin (domain, protocol or port) than the one from which the current page was served.
 
+- CORS: Cross Origin Resource Sharing
+- It's a security feature implemented by the browsers to restrict the web pages from making the request from different origin (domian, protocol) than the one from which the current web page was served.
 
-# Deployment:
+- How to install CORS?
 
-   - backend project deployment: render.com
+   npm i cors / yarn add cors (CORS module is an external module and it doesn't come along with nodeJS modules).
 
-      - after login on render.com via github repo:
-          new -> webservice -> open an UI to provide the details of repo that you want to deploy.
+- Backend Deployment:
 
-      - use pubilc git repository: https://github.com/AshwaniRajput87/E-com-Backend-Project
+   - render.com is being used for backend deployment
+   - render.com - sign up via google/github account
+   - after login via github or any other code repos then you will land
+      on the dasboard page
+    - Create a webservive by clicking on New button at the top.
+    - create web service and paste the url og github where your backend product is available.
+    metioned the root folder: Ecommerce-Backend-Project
 
-   - frontend project deployment: netlify.com
-       - https://app.netlify.com/login
-       - after login-> you have a dashboard page
-       - got to sites tab at left hand side -> click on add new site -> import your existing project
+- Frontend Deployment:
+   - netlify.com - https://app.netlify.com/
+   - sign up by your github
+   - login - land to dashboard page.

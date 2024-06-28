@@ -12,41 +12,36 @@ function Login() {
 
     const [loading, setLoading] = useState(false);
     const [errMsg, setErrMsg] = useState("");
+
     const navigate = useNavigate();
 
     const { setAuth } = useAuth();
+
     const handleSubmit = async () => {
        // write your logic here
 
-          try{
-
+        try {
             setLoading(true);
 
-            let userDetails= {
-               email,
-               password,
+            let userDetails = {
+                email,
+                password,
             };
-
-            console.log(userDetails);
 
             const resp = await axios.post(urlConfig.LOGIN_URL, userDetails);
             const data = resp.data;
-            // console.log(data);
-            console.log(setAuth);
-
-            if(data.status === "success") {
-                setEmail("");
-                setPassword("");
+            console.log(data);
+            if(data) {
+                setEmail('');
+                setPassword('');
                 navigate('/');
-                console.log(data);
                 setAuth(data);
-            }
-        }catch(err){
-            console.log(err.message);
+            } 
+        }catch(error){
             setErrMsg("User is not loggedin successfully!");
             setTimeout(()=>{
                 setErrMsg("");
-            }, 2000);
+            }, 2000)
         } finally {
             setLoading(false);
         }

@@ -31,6 +31,7 @@ const Navbar = ({categories, isLoading}) => {
                 </ul>
             </div>
             <div className='nav-right'>
+            {/* show username */}
                 <Link to="/cart" className="cart-icon-container">
                     <FaOpencart className="cart-icon" />
                     {totalQuantity ? <div className='cart-badge'>{totalQuantity}</div> : <></>}

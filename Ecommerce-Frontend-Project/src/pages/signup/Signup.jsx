@@ -1,7 +1,7 @@
 import './signup.css';
 import React, { useState } from 'react';
 import axios from 'axios';
-import urlConfig from '../../utils/urlConfig.js';
+import urlConfig from '../../utils/urlConfig';
 import { Link, useNavigate } from "react-router-dom";
 
 function Signup() {
@@ -17,37 +17,31 @@ function Signup() {
     const navigate = useNavigate();
     const handleSubmit = async () => {
         // write your logic here
-
-        try{
-
+        try {
             setLoading(true);
 
-            let userDetails= {
-               name,
-               email,
-               password,
-               confirmPassword 
+            let userDetails = {
+                name,
+                email,
+                password,
+                confirmPassword
             };
-
-            console.log(userDetails);
 
             const resp = await axios.post(urlConfig.SIGNUP_URL, userDetails);
             const data = resp.data;
             console.log(data);
-
             if(data) {
-                setName("");
-                setEmail("");
-                setPassword("");
-                setConfirmPassword("");
-                navigate('/login')
-            }
-        }catch(err){
-            console.log(err.message);
-            setErrMsg("User is not resigtered successfully!");
+                setName('');
+                setEmail('');
+                setPassword('');
+                setConfirmPassword('');
+                navigate('/login');
+            } 
+        }catch(error){
+            setErrMsg("User is not registered successfully!");
             setTimeout(()=>{
                 setErrMsg("");
-            }, 2000);
+            }, 2000)
         } finally {
             setLoading(false);
         }
