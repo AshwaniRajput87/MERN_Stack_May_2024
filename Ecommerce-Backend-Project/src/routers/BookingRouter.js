@@ -3,7 +3,7 @@ const shortid = require('shortid');
 
 
 const Razorpay = require("razorpay");
-const BookingModel = require("../models/BookingModel");
+const BookingModel = require("../models/bookingModel");
 const { protectRouteMiddleWare } = require("../controllers/AuthController");
 const UserModel = require("../models/userModel");
 

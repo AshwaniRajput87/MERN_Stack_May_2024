@@ -1,6 +1,6 @@
 const express = require("express");
 const ReviewRouter = express.Router();
-const ReviewModel = require("../models/reviewModel");
+const ReviewModel = require("../models/ReviewModel");
 const { protectRouteMiddleWare } = require("../controllers/AuthController");
 const ProductModel = require("../models/productModel");
 
