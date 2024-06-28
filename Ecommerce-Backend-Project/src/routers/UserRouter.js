@@ -1,6 +1,6 @@
 const express = require("express");
 const UserRouter = express.Router();
-const { getAllUserHandler, createuserHandler, getUserById, deleteUserById } = require("../controllers/UserController")
+const { getAllUserHandler, createuserHandler, getUserById, deleteUserById } = require("../controllers/userController")
 // const { checkInput } = require("../controllers/middleWares");
 const { protectRouteMiddleWare, isAdminMiddleWare } = require("../controllers/AuthController");
 /***********routes**************/

@@ -4,7 +4,7 @@ const {
     createProductHandler,
     getProductById,
     deleteProductById 
-} = require("../controllers/ProductController");
+} = require("../controllers/productController");
 const { checkInput } = require("../controllers/middleWares");
 const ProductModel = require("../models/ProductModel");
 const { protectRouteMiddleWare, isAuthorizedMiddleWare } = require("../controllers/AuthController");

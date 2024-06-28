@@ -14,6 +14,7 @@ const fs = require("fs");
 const path = require("path");
 const sendEmailHelper = require('../utils/dynamicMailSender');
 
+
 const app = express();
 app.use(express.json()); // to read data from request body
 
@@ -49,6 +50,7 @@ const signupController = async(req, res) => {
         })
     }
 }
+
 const loginController = async(req, res) => {
     try {
 
