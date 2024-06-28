@@ -1,6 +1,6 @@
 /******all the required imports are in the same file***/
 const express = require('express');
-const UserModel = require("../models/UserModel");
+const UserModel = require("../models/userModel");
 const jwt = require("jsonwebtoken");
 const promisify = require("util").promisify;
 const promisifiedJWTSign = promisify(jwt.sign);

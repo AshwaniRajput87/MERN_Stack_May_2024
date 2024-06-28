@@ -25,3 +25,4 @@
    - netlify.com - https://app.netlify.com/
    - sign up by your github
    - login - land to dashboard page.
+   - go to sites tab at left hand side -> click on add new site -> import your existing project
