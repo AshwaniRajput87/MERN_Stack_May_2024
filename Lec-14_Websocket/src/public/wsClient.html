@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Socket Chat App</title>
+</head>
+<style>
+
+ul{
+    list-style: none;
+}
+
+.messages {
+    width: 100%
+}
+
+.sender{
+    background-color: beige;
+    padding: 1rem;
+    margin-left: 2rem;
+
+}
+
+.reciever {
+    background-color:bisque;
+    padding: 1rem;
+    margin-left: 2rem;
+}
+
+
+</style>
+<body>
+    <h1>Chat App Example</h1>
+
+    <input type="text" id="msg">
+    <button id="send">Send</button>
+
+    <button id="createGrp">Create Group</button>
+    <button id="joinGrp">Join Group</button>
+    <button id="stg">Send To Group Message</button>
+    <button id="leaveGrp">Leave Group</button>
+
+    <div class="messages">
+        <ul id="list"></ul>
+    </div>
+
+    <script src="socket.io/socket.io.js"></script>
+    <script src="./script.js"></script>
+</body>
+</html>
