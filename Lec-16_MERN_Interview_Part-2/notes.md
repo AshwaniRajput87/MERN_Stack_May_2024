@@ -1,0 +1,1 @@
+"dev": "nodemon src/streamServer.js"
